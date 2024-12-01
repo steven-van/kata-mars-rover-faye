@@ -23,6 +23,6 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
     * Find a domain expert
     * Write test scenarios together
 
-* Implementing the test scenarios one by one following the TDD method
+* Implement the test scenarios one by one following the TDD method
 
 * Compare your architecture with what you designed
