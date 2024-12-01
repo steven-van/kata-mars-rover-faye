@@ -1,5 +1,7 @@
 # Mars Rover Kata
 
+Taken from : https://kata-log.rocks/mars-rover-kata
+
 ## Your Task
 
 You’re part of the team that explores Mars by sending remotely controlled vehicles to the surface of the planet. Develop an API that translates the commands sent from earth to instructions that are understood by the rover.
@@ -13,3 +15,14 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 * Implement wrapping at edges. But be careful, planets are spheres.
 * Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point, aborts the sequence and reports the obstacle.
 
+## Instructinos
+
+* Draw an UML architecture by thinking hard about the project (but don't implement anything yet!)
+ 
+ * Try to apply BDD:
+    * Find a domain expert
+    * Write test scenarios together
+
+* Implementing the test scenarios one by one following the TDD method
+
+* Compare your architecture with what you designed
