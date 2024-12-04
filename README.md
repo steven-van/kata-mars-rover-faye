@@ -4,7 +4,7 @@ Taken from : https://kata-log.rocks/mars-rover-kata
 
 ## Your Task
 
-You’re part of the team that explores Mars by sending remotely controlled vehicles to the surface of the planet. Develop an API that translates the commands sent from earth to instructions that are understood by the rover.
+You’re part of the team that explores Mars by sending remotely controlled vehicles to the surface of the planet. You'll need to write some code to translate the commands sent from earth to instructions that are understood by the rover.
 
 ## Requirements
 
@@ -23,6 +23,6 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
     * Find a domain expert
     * Write test scenarios together
 
-* Implement the test scenarios one by one following the TDD method
+* Implement the test scenarios one by one
 
 * Compare your architecture with what you designed
