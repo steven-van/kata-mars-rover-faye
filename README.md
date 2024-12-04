@@ -1,6 +1,6 @@
 # Mars Rover Kata
 
-Taken from : https://kata-log.rocks/mars-rover-kata
+
 
 ## Your Task
 
@@ -29,3 +29,8 @@ are understood by the rover.
 * Implement the test scenarios one by one
 
 * Compare your architecture with what you designed
+
+## Credits
+
+Inspired by:  https://kata-log.rocks/mars-rover-kata (but the instructions here are slightly different)
+
