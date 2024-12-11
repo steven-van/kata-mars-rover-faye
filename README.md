@@ -26,7 +26,11 @@ are understood by the rover.
     * Find a domain expert
     * Write test scenarios together
 
-* Implement the test scenarios one by one
+* Implement the test scenarios one by one, following this cycle for each feature:
+
+   1. Write the scenario
+   1. Write the automatic test
+   1. Write the production code
 
 * Compare your architecture with what you designed
 
