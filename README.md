@@ -28,7 +28,7 @@ are understood by the rover.
 
 * Implement the test scenarios one by one, following this cycle for each feature:
 
-1. Write the scenario
+1. Write the scenario (you can use the `.feature` extension if you want)
 1. Write the automatic test
 1. Write the production code
 
