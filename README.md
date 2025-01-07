@@ -28,9 +28,9 @@ are understood by the rover.
 
 * Implement the test scenarios one by one, following this cycle for each feature:
 
-   1. Write the scenario
-   1. Write the automatic test
-   1. Write the production code
+1. Write the scenario
+1. Write the automatic test
+1. Write the production code
 
 * Compare your architecture with what you designed
 
