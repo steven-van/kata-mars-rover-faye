@@ -34,9 +34,23 @@ class Rover:
         elif self.direction == 'EAST':
             self.x -= 1
     def turnRight(self):
-        self.direction = 'EAST'
+        if self.direction == 'NORTH':
+            self.direction = 'EAST'
+        elif self.direction == 'EAST':
+            self.direction = 'SOUTH'
+        elif self.direction == 'SOUTH':
+            self.direction = 'WEST'
+        elif self.direction == 'WEST':
+            self.direction = 'NORTH'
     def turnLeft(self):
-        self.direction = 'WEST'
+        if self.direction == 'NORTH':
+            self.direction = 'WEST'
+        elif self.direction == 'WEST':
+            self.direction = 'SOUTH'
+        elif self.direction == 'SOUTH':
+            self.direction = 'EAST'
+        elif self.direction == 'EAST':
+            self.direction = 'NORTH'
 
 def test_rover_moves_forward():
     # Given : The rover is at position (0,0) facing North
@@ -107,3 +121,15 @@ def test_rover_turns_right_and_forward():
     assert rover.x == 1
     assert rover.y == 0
     assert rover.direction == 'EAST'
+
+def test_rover_facing_south():
+    # Given : The rover is at position (0,0) facing North
+    rover = Rover(0, 0)
+    
+    # When : The rover receives the command r, f
+    rover.executeCommands(['r', 'r'])
+
+    # Then : The rover faces East and moves to position (1,0)
+    assert rover.x == 0
+    assert rover.y == 0
+    assert rover.direction == 'SOUTH'
