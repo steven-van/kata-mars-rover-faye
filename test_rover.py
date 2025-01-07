@@ -16,13 +16,41 @@ class Rover:
                 self.turnRight()
     
     def moveForward(self):
-        self.y += 1
+        if self.direction == 'NORTH':
+            self.y += 1
+        elif self.direction == 'SOUTH':
+            self.y -= 1
+        elif self.direction == 'WEST':
+            self.x -= 1
+        elif self.direction == 'EAST':
+            self.x += 1
     def moveBackward(self):
-        self.y -= 1
+        if self.direction == 'NORTH':
+            self.y -= 1
+        elif self.direction == 'SOUTH':
+            self.y += 1
+        elif self.direction == 'WEST':
+            self.x += 1
+        elif self.direction == 'EAST':
+            self.x -= 1
     def turnRight(self):
-        self.direction = 'EAST'
+        if self.direction == 'NORTH':
+            self.direction = 'EAST'
+        elif self.direction == 'EAST':
+            self.direction = 'SOUTH'
+        elif self.direction == 'SOUTH':
+            self.direction = 'WEST'
+        elif self.direction == 'WEST':
+            self.direction = 'NORTH'
     def turnLeft(self):
-        self.direction = 'WEST'
+        if self.direction == 'NORTH':
+            self.direction = 'WEST'
+        elif self.direction == 'WEST':
+            self.direction = 'SOUTH'
+        elif self.direction == 'SOUTH':
+            self.direction = 'EAST'
+        elif self.direction == 'EAST':
+            self.direction = 'NORTH'
 
 def test_rover_moves_forward():
     # Given : The rover is at position (0,0) facing North
@@ -32,8 +60,8 @@ def test_rover_moves_forward():
     rover.executeCommands(['f'])
     
     # Then : The rover moves to position (0,1)
-    assert rover.x == 0, f"Expected x=0, got {rover.x}"
-    assert rover.y == 1, f"Expected y=1, got {rover.y}"
+    assert rover.x == 0
+    assert rover.y == 1
     
 def test_rover_moves_backward():
     # Given : The rover is at position (0,0) facing North
@@ -42,9 +70,9 @@ def test_rover_moves_backward():
     # When : The rover receives the command b
     rover.executeCommands(['b'])
     
-    # Then : The rover moves to position (0,-1)
-    assert rover.x == 0, f"Expected x=0, got {rover.x}"
-    assert rover.y == -1, f"Expected y=-1, got {rover.y}"
+    # Then : The rover moves to position (0,-1) and still faces North
+    assert rover.x == 0
+    assert rover.y == -1
     assert rover.direction == 'NORTH'
     
 def test_rover_turns_left():
@@ -53,6 +81,8 @@ def test_rover_turns_left():
     
     # When : The rover receives the command l
     rover.executeCommands(['l'])
+
+    # Then : The rover faces West
     assert rover.direction == 'WEST'
 
 def test_rover_turns_right():
@@ -62,6 +92,7 @@ def test_rover_turns_right():
     # When : The rover receives the command r
     rover.executeCommands(['r'])
     
+    # Then : The rover faces East
     assert rover.direction == 'EAST'
 
 def test_rover_turns_left_and_forward():
@@ -72,9 +103,9 @@ def test_rover_turns_left_and_forward():
     rover.executeCommands(['l'])
     rover.executeCommands(['f'])
 
-    # Then : The rover moves to position (-1,0)
-    assert rover.x == -1, f"Expected x=-1, got {rover.x}"
-    assert rover.y == 0, f"Expected y=0, got {rover.y}"
+    # Then : The rover faces West and moves to position (-1,0)
+    assert rover.x == -1
+    assert rover.y == 0
     assert rover.direction == 'WEST'
 
 
@@ -86,7 +117,19 @@ def test_rover_turns_right_and_forward():
     rover.executeCommands(['r'])
     rover.executeCommands(['f'])
 
-    # Then : The rover moves to position (1,0)
-    assert rover.x == 1, f"Expected x=1, got {rover.x}"
-    assert rover.y == 0, f"Expected y=0, got {rover.y}"
+    # Then : The rover faces East and moves to position (1,0)
+    assert rover.x == 1
+    assert rover.y == 0
     assert rover.direction == 'EAST'
+
+def test_rover_facing_south():
+    # Given : The rover is at position (0,0) facing North
+    rover = Rover(0, 0)
+    
+    # When : The rover receives the command r, f
+    rover.executeCommands(['r', 'r'])
+
+    # Then : The rover faces East and moves to position (1,0)
+    assert rover.x == 0
+    assert rover.y == 0
+    assert rover.direction == 'SOUTH'
